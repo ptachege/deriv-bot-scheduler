@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "PnJ Deriv Bot CronJob",
+  "version": "1.0",
+  "description": "Clicks buttons on Deriv bot builder every hour.",
+  "permissions": ["activeTab", "scripting", "alarms", "tabs"],
+  "host_permissions": ["*://app.deriv.com/"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://app.deriv.com/*"],
+      "js": ["./content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+}
